@@ -2,16 +2,14 @@ import validaCpf from "./validaCpf.js"
 
 const tiposDeErro = [
     'valueMissing',
-    'typeMismatch',
     'tooShort',
-    'tooLong',
     'customError'
 ]
 
 const mensagens = {
     cpf: {
         valueMissing: "O campo não pode estar vazio",
-        tooShort: "Por favor, preencha os 11 digitos do cpf",
+        tooShort: "CPF deve ter 11 digitos",
         customError: "Por favor, preencha um cpf válido"
     }
 }
