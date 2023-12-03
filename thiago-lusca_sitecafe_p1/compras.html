@@ -7,6 +7,7 @@
     <title>Café Livre</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="carrinho.js"></script>
     <style>
 
     </style>
@@ -47,45 +48,58 @@
                     <legend>Produtos</legend>
                     <div class="form-group">
                         <label for="product">Máquinas</label>
-                        <select class="form-control" id="product" required>
+                        <select class="form-control" id="maquina" required>
                             <option value="">Selecione a máquina</option>
-                            <option>Piccolo</option>
-                            <option>Inissia C40</option>
-                            <option>U C50</option>
-                            <option>HD7811/96</option>
+                            <option value="maquina1">Piccolo</option>
+                            <option value="maquina2">Inissia C40</option>
+                            <option value="maquina3">U C50</option>
+                            <option value="maquina4">HD7811/96</option>
                         </select>
                         <label for="product">Sachês</label>
-                        <select class="form-control" id="product" required>
+                        <select class="form-control" id="sache" required>
                             <option value="">Selecione um sachê</option>
-                            <option>Expresso</option>
-                            <option>Descafeinado</option>
-                            <option>Livanto</option>
-                            <option>Ristretto</option>
-                            <option>Vanilio</option>
-                            <option>Clássico</option>
-                            <option>Intenso</option>
+                            <option value="sache1">Expresso</option>
+                            <option value="sache2">Descafeinado</option>
+                            <option value="sache3">Livanto</option>
+                            <option value="sache4">Ristretto</option>
+                            <option value="sache5">Vanilio</option>
+                            <option value="sache6">Clássico</option>
+                            <option value="sache7">Intenso</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="quantity">Quantidade</label>
-                        <input type="number" class="form-control" id="quantity" min="1"
-                            placeholder="Digite a quantidade" required>
+                    <div>
+                        <button type="button" class="btn btn-primary" id="add" onclick="addToCart()">Adicionar</button>
                     </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Informações de Pagamento</legend>
-                    <div class="form-group">
-                        <label for="cpf">Cpf</label>
-                        <input class="form-control" id="cpf" type="text" maxlength="11" required>
-                        <span class="mensagem-erro"></span>
-                        <label for="payment">Forma de Pagamento</label>
-                        <select class="form-control" id="payment" required>
-                            <option value="">Selecione a forma de pagamento</option>
-                            <option>Cartão de Crédito</option>
-                            <option>Boleto</option>
-                        </select>
+                    <div class="container mt-5">
+                        <h2>Carrinho de Compras</h2>
+                        <table class="table" id="cart">
+                            <thead>
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Preço</th>
+                                    <th>Ações</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <h3>Total: R$<span id="total">0</span></h3>
                     </div>
-                </fieldset>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Informações de Pagamento</legend>
+                        <div class="form-group">
+                            <label for="cpf">Cpf</label>
+                            <input class="form-control" id="cpf" type="text" maxlength="11" required>
+                            <span class="mensagem-erro"></span>
+                            <label for="payment">Forma de Pagamento</label>
+                            <select class="form-control" id="payment" required>
+                                <option value="">Selecione a forma de pagamento</option>
+                                <option>Cartão de Crédito</option>
+                                <option>Boleto</option>
+                            </select>
+                        </div>
+                    </fieldset>
                 <fieldset>
                     <legend>Dados de Entrega</legend>
                     <div class="form-group">
@@ -146,13 +160,5 @@
     </header>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        document.getElementById('payment').addEventListener('change', function () {
-            if (this.value === 'Cartão de Crédito') {
-                $('#creditCardModal').modal('show');
-            }
-        });
-    </script>
 </body>
-
 </html>
