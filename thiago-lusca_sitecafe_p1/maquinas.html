@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-
-    </style>
+    <style></style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
@@ -41,7 +39,7 @@
     <p>Bem-vindo à nossa seleção premium de cafeteiras, onde a paixão pelo café encontra a excelência em design e funcionalidade. Transforme seu ritual matinal em uma experiência extraordinária com nossas máquinas de café de última geração. Cada cafeteira é cuidadosamente projetada para proporcionar o sabor mais rico e aromático em cada xícara.</p>
 </header>
 <body>
-    <table class="table table-hover table-bordered">
+    <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th>Tipo</th>
@@ -53,24 +51,26 @@
         <tbody>
             <tr>
                 <td>Dolce Gusto</td>
-                <td>Piccolo</td>
+                <td><a href="#" class="machine-model" data-image-url="imagens/Dulce_Gusto.jpg" data-price="R$ 340,00" onclick="showInfo(this); return false;">Piccolo</a></td>
+                <td rowspan="4"><img src="" class="machine-image"></td>
+                <td rowspan="4" class="machine-price"></td>
             </tr>
             <tr>
                 <td>Nespresso</td>
-                <td>Inissia C40</td>
+                <td class="machine-model"><a href="#" class="machine-model" data-image-url="imagens/Nespresso_Inissia.jpg" data-price="R$ 300,00" onclick="showInfo(this); return false;">Inissia C40</a></td>
             </tr>
             <tr>
-                <td></td>
-                <td>U C50</td>
+                <td rowspan="2">Senseo</td>
+                <td class="machine-model"><a href="#" class="machine-model" data-image-url="imagens/Nespresso_C50.jpg" data-price="R$ 400,00" onclick="showInfo(this); return false;">U C50</a></td>
             </tr>
             <tr>
-                <td>Senseo</td>
-                <td>HD7811/96</td>
+                <td><a href="#" class="machine-model" data-image-url="imagens/Senseo.jpg" data-price="R$ 230,00" onclick="showInfo(this); return false;">HD7811/96</a></td>
             </tr>
         </tbody>
     </table>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
