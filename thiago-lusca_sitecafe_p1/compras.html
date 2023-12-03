@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Café Livre</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="stylesheet" href="./css/index.css">
     <style>
 
     </style>
@@ -75,6 +75,9 @@
                 <fieldset>
                     <legend>Informações de Pagamento</legend>
                     <div class="form-group">
+                        <label for="cpf">Cpf</label>
+                        <input class="form-control" id="cpf" type="text" maxlength="11" required>
+                        <span class="mensagem-erro"></span>
                         <label for="payment">Forma de Pagamento</label>
                         <select class="form-control" id="payment" required>
                             <option value="">Selecione a forma de pagamento</option>
