@@ -38,24 +38,14 @@
 <header class="text-center p-5">
     <h1 class="display-4">Saches page</h1>
     <div class="container mt-5">
-    <h2>Dolce Gusto (Caixa 16 capsulas):</h2>
     <ul class="list-group">
-        <li class="list-group-item">Expresso 96g - R$ 24,00</li>
-        <li class="list-group-item">Descafeinado 96g - R$ 21,00</li>
-    </ul>
-    <h2 class="mt-4">Senseio (18 sachês):</h2>
-    <ul class="list-group">
-        <li class="list-group-item">Clássico 120g - R$ 14,00</li>
-        <li class="list-group-item">Intenso 120g - R$ 14,00</li>
-    </ul>
-    <h2>Nespresso (20 capsulas):</h2>
-    <ul class="list-group">
-        <li class="list-group-item">Livanto - R$ 35,00</li>
-        <li class="list-group-item">Ristretto - R$ 42,00</li>
-        <li class="list-group-item">Vanilio - R$ 46,00</li>
+        <li class="list-group-item mb-3 pointer" onclick="openJanela('Dolce Gusto', '16', './imagens/CapsulaDulceGusto.png', 'Expresso 96g - R$24,00\nDescafeinado 96g - R$21,00')">Dolce Gusto</li>
+        <li class="list-group-item mb-3 pointer" onclick="openJanela('Senseo', '18', './imagens/Senseo_Classico.png', 'Clássico 120g - R$14,00\nIntenso 120g - R$14,00')">Senseio</li>
+        <li class="list-group-item mb-3 pointer" onclick="openJanela('Nespresso', '20', './imagens/NespressoLivanto.png', 'Livanto - R$35,00\nRistretto - R$42,00\nVanilio - R$46,00')">Nespresso</li>
     </ul>
 </div>
 </header>
+<script src="./main.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
