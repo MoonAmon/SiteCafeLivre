@@ -76,8 +76,8 @@
                     <legend>Informações de Pagamento</legend>
                     <div class="form-group">
                         <label for="cpf">Cpf</label>
-                        <input class="form-control" id="cpf" type="text" maxlength="11" required>
-                        <span class="mensagem-erro"></span>
+                        <input class="form-control" id="cpf" type="text" required minlength="11" maxlength="11" name="cpf">
+                        <span class="mensagem-erro form-check" id="erro"></span>
                         <label for="payment">Forma de Pagamento</label>
                         <select class="form-control" id="payment" required>
                             <option value="">Selecione a forma de pagamento</option>
@@ -153,6 +153,7 @@
             }
         });
     </script>
+    <script type="module" src="./validaCampos.js"></script>
 </body>
 
 </html>
