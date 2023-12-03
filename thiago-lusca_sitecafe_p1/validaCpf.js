@@ -1,6 +1,1 @@
-export default function validarCPF(campo) {
-  
-
-}
-  
-  
+const cpf = 
