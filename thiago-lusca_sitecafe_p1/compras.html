@@ -81,8 +81,9 @@
                     <label for="address">Endereço</label>
                     <input type="text" class="form-control" id="address" placeholder="Digite seu endereço" required>
                 </div>
+
             </fieldset>
-            <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+            <button type="submit" class="btn btn-primary" id="btnSubmit">Finalizar Compra</button>
         </form>
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="creditCardModal">
@@ -98,30 +99,34 @@
                     <form>
                         <div class="form-group">
                             <label for="cardNumber">Número do Cartão</label>
+                            <label for="errorCardNumber" id="errorCardNumber"></label>
                             <input type="text" class="form-control" id="cardNumber" placeholder="Digite o número do cartão">
                         </div>
                         <div class="form-group">
                             <label for="cardName">Nome no Cartão</label>
                             <input type="text" class="form-control" id="cardName" placeholder="Digite o nome como está no cartão">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="address">CPF</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="Digite os números do seu CPF" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardExpiry">Validade do Cartão</label>
+                            <input type="month" class="form-control" id="cardExpiry" required>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-primary" id="btn_credit">Salvar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </div>
             </div>
         </div>
     </div>
 </header>
+<script src="compras_var.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    document.getElementById('payment').addEventListener('change', function(){
-        if (this.value === 'Cartão de Crédito'){
-            $('#creditCardModal').modal('show');
-        }
-    });
-</script>
 </body>
 </html>
