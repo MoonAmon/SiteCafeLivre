@@ -85,21 +85,21 @@
                         </table>
                         <h3>Total: R$<span id="total">0</span></h3>
                     </div>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Informações de Pagamento</legend>
-                        <div class="form-group">
-                            <label for="cpf">Cpf</label>
-                            <input class="form-control" id="cpf" type="text" maxlength="11" required>
-                            <span class="mensagem-erro"></span>
-                            <label for="payment">Forma de Pagamento</label>
-                            <select class="form-control" id="payment" required>
-                                <option value="">Selecione a forma de pagamento</option>
-                                <option>Cartão de Crédito</option>
-                                <option>Boleto</option>
-                            </select>
-                        </div>
-                    </fieldset>
+                </fieldset>
+                <fieldset>
+                    <legend>Informações de Pagamento</legend>
+                    <div class="form-group">
+                        <label for="cpf">Cpf</label>
+                        <input class="form-control" id="cpf" type="text" maxlength="11" required>
+                        <span class="mensagem-erro"></span>
+                        <label for="payment">Forma de Pagamento</label>
+                        <select class="form-control" id="payment" required>
+                            <option value="">Selecione a forma de pagamento</option>
+                            <option>Cartão de Crédito</option>
+                            <option>Boleto</option>
+                        </select>
+                    </div>
+                </fieldset>
                 <fieldset>
                     <legend>Dados de Entrega</legend>
                     <div class="form-group">
@@ -160,5 +160,12 @@
     </header>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('payment').addEventListener('change', function () {
+            if (this.value === 'Cartão de Crédito') {
+                $('#creditCardModal').modal('show');
+            }
+        });
+    </script>
 </body>
 </html>
