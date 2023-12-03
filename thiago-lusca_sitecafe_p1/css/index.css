@@ -46,3 +46,7 @@ p {
     cursor: pointer;
 }
 
+.mensagem-erro {
+    color: red;
+}
+
