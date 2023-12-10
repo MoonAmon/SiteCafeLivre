@@ -1,4 +1,3 @@
-function openJanela(nome, quantidade, urlImagem, produtos) {
 function showInfo(model) {
     var imageUrl = model.dataset.imageUrl;
     var price = model.dataset.price;

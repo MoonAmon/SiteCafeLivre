@@ -1,22 +1,33 @@
-export default function validaCpf(campo) {
-    const cpf = campo.value
+function validaCpf() {
+    cpf = document.getElementById('cpf').value
+    erro = document.getElementById('error')
 
     function calculaDV(num) {
         var resto = 0, soma = 0;
         for (let i = 2; i < 11; i++) {
-          soma += (num % 10) * i;
-          num = parseInt(num / 10);
+            soma += (num % 10) * i;
+            num = parseInt(num / 10);
         }
         resto = soma % 11;
         return (resto > 1) ? (11 - resto) : 0;
-      }
-            
-      let primeiro_digito = calculaDV(cpf);
-      let segundo_digito = calculaDV(cpf * 10 + primeiro_digito)
+    }
 
-    if (!cpf.match(/^\d+$/)) {
-        campo.setCustomValidity('CPF só pode ter digitos, caracter')
-    } else if(cpf[0] != primeiro_digito && cpf[1] != segundo_digito) {
-        campo.setCustomValidity('Digitos verificados inválidos')
+    if (cpf.length === 0) {
+        erro.innerHTML = "Nenhum caractere preenchido";
+    } else if (cpf.length !== 11) {
+        erro.innerHTML = "Digite os 11 caracteres";
+    } else if (!cpf.match(/^\d+$/) && cpf.length == 11) {
+        erro.innerHTML = 'Digite apenas os dígitos';
+    } else {
+        let primeiro_digito = calculaDV(parseInt(cpf.substring(0, 9)));
+        let segundo_digito = calculaDV(parseInt(cpf.substring(0, 9) + primeiro_digito));
+
+        if (parseInt(cpf[9]) !== primeiro_digito || parseInt(cpf[10]) !== segundo_digito) {
+            erro.innerHTML = 'Dígitos verificadores inválidos';
+        } else if (/^(\d)\1+$/.test(cpf)) {
+            erro.innerHTML = 'CPF inválido (todos os dígitos são iguais)';
+        } else {
+            erro.innerHTML = '';
+        }
     }
 }

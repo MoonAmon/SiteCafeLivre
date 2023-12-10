@@ -34,6 +34,9 @@ function getMaquina(id) {
     return null;
 }
 
+var total = 0;  
+var cart = [];
+
 function addToCart() {
     var selectedSacheId = document.querySelector('#sache').value;
     var selectedSache = getSache(selectedSacheId);
@@ -41,13 +44,21 @@ function addToCart() {
     var selectedMaquinaId = document.querySelector('#maquina').value;
     var selectedMaquina = getMaquina(selectedMaquinaId);
 
-    var cart = document.querySelector('#cart tbody');
-    var row = document.createElement('tr');
-    row.innerHTML = `<td>${selectedSache.name}</td><td>R$${selectedSache.price}</td><td><button type="button" class="btn btn-danger" onclick="removeItemFromCart(this)">Remover</button></td>`;
-    cart.appendChild(row);
+    if (selectedSache) {
+        cart.push(selectedSache);
+    }
 
-    var total = document.querySelector('#total');
-    total.textContent = parseFloat(total.textContent) + selectedSache.price + selectedMaquina.price;
+    var machineInCart = cart.find(function(item) {
+        return item.type === 'maquina';
+    });
+
+    if (!machineInCart && selectedMaquina) {
+        cart.push(selectedMaquina);
+    }
+
+    document.querySelector('#total').textContent =  total;
+    updateCartInterface();
+
 }
 
 function removeItemFromCart(button) {
@@ -59,6 +70,41 @@ function removeItemFromCart(button) {
     totalElement.textContent = parseFloat(totalElement.textContent) - totalForRow;
 
     row.parentElement.removeChild(row);
+}
+
+function updateCartInterface() {
+    var cartTableBody = document.querySelector('#cart tbody'); 
+    cartTableBody.innerHTML = '';
+
+    for (var i = 0; i < cart.length; i++) {
+        var item = cart[i];
+        var row = document.createElement('tr');
+
+        var nameCell = document.createElement('td');
+        nameCell.textContent = item.name;
+        row.appendChild(nameCell);
+        
+        var priceCell = document.createElement('td');
+        priceCell.textContent = 'R$ ' + item.price.toFixed(2);
+        row.appendChild(priceCell);
+
+        var actionsCell = document.createElement('td');
+        var removeButton = document.createElement('button');
+        removeButton.classList.add('btn', 'btn-danger', 'remove');
+        removeButton.textContent = 'Remover';
+        removeButton.addEventListener('click', function() {
+            removeItemFromCart(i);
+        });
+        actionsCell.appendChild(removeButton);
+        row.appendChild(actionsCell);
+
+        cartTableBody.appendChild(row);
+    }
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartInterface();
 }
 
 document.addEventListener('DOMContentLoaded', function() {

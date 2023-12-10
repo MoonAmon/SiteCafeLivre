@@ -46,7 +46,10 @@ p {
     cursor: pointer;
 }
 
-.mensagem-erro {
-    color: red;
+.machine-model:link {
+    color: #573218
 }
 
+.machine-model:visited {
+    color: #662222
+}
